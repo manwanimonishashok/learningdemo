@@ -11,12 +11,12 @@ app.post("/addition/:number1/:number2",function(request,response){
     console.log("/add route executed ...")
     
     var data = {
-        num1:parseInt(request.body.number1),
-        num2:parseInt(request.body.number2),
-        result:parseInt(request.body.number1) + parseInt(request.body.number2)
+        num1:parseInt(request.body.num1),
+        num2:parseInt(request.body.num2),
+        result:parseInt(request.body.num1) + parseInt(request.body.num2)
     };
     console.log(data);
-    response.json(data);
+    response.send(data);
 
 });
-app.listen(3000)
+app.listen(3000);
