@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <link rel="stylesheet" href="homepage.css">
+
+</head>
+<body>
+    
+    
+        <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+            <a class="navbar-brand" href="/">Home</a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+              <span class="navbar-toggler-icon"></span>
+            </button>
+          
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+              <ul class="navbar-nav mr-auto">
+                <li class="nav-item active">
+                  <a class="nav-link" href="/aboutus">About Us<span class="sr-only">(current)</span></a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" href="/whystocks">Why Stocks</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" href="/virtualpage">Virtual Portfolio</a>
+                </li>                
+                <li class="nav-item">
+                  <a class="nav-link" href="/login">Login</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" href="/signup">Signup</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" href="/logout">Logout</a>
+                </li>                
+              </ul>
+              <form class="form-inline my-2 my-lg-1">
+                <a href="https://google.com" target="_blank" class="btn btn-outline-success my-2 my-sm-0"role="button" aria-disabled="false">Use Google Search</a>
+              </form>
+            </div>
+          </nav>
+<div class="offset-md-1 col-md-10">
+  <br>
+<h2>Latest Indian Business Headlines powered by&nbsp;<a href="https://newsapi.org/">Newsapi</a></h2>
+  <br>
+<div class="wrapper">
+    {{#each articles.articles}}
+        <div class="article">
+                <img src={{urlToImage}} alt="Unable to load image"class="img-thumbnail" width="200" height="200"></img>
+            <div class="article-header">
+            <a href={{url}}><h6 class="article-title">{{title}}</h6></a>
+            </div>
+            <div class="article-body">
+                <p class="article-description">{{description}}</p>
+                
+        </div>
+    {{/each}}
+</div>
+</div>   
+
+
+
+</body>
+</html>

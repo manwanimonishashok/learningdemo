@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <link rel="stylesheet" href="homepage.css">
+
+</head>
+<body>
+   <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+            <a class="navbar-brand" href="/">Home</a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+              <span class="navbar-toggler-icon"></span>
+            </button>
+          
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+              <ul class="navbar-nav mr-auto">
+                <li class="nav-item active">
+                  <a class="nav-link" href="/aboutus">About Us<span class="sr-only">(current)</span></a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" href="/whystocks">Why Stocks</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" href="/virtualpage">Virtual Portfolio</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" href="/login">Login</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" href="/signup">Signup</a>
+                </li>
+              </ul>
+
+            </div>
+          </nav>
+
+        <div class="row">
+            <div class="offset-md-1 col-md-2">
+                <br>
+                <strong><a target="blank" href="https://www.nseindia.com/products/content/equities/equities/eq_new_high_low.htm">52-Week High And Low</a></strong>                
+            </div>
+            <div class="col-md-2">
+                <br>
+                <strong><a target="blank" href="https://www.nseindia.com/live_market/dynaContent/live_analysis/top_gainers_losers.htm">Top 10 Gainers And Losers</a></strong>                
+            </div>            
+            <div class="offset-md-1 col-md-2">
+                <br>
+                <strong><a target="blank" href="https://chartink.com/screener">Technical Scanners</a></strong>                
+            </div>
+            <div class="col-md-2">
+                <br>
+                <strong><a target="blank" href="https://www.moneyworks4me.com/stock-market/stock-screener">Fundamental Analysis</a></strong>                
+            </div>            
+        </div>
+
+        <br>
+
+
+    <div class="container-fluid">
+        <div class="row">
+            <div class="offset-md-5 col-md-3">
+                <br>
+                <h5>Welcome <strong>{{user.name}}</strong></h5>
+                <br>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="offset-md-1 col-md-3">
+                <br>
+                <form class="form-inline my-2 my-lg-1" action="/virtualpage" method="POST">
+                    <input name="name" class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
+                    <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+
+                    <button id="btn1" type="submit" class="btn btn-primary">Add To Portfolio</button>
+                </form>
+
+            </div>
+            <div class="offset-md-4 col-md-3">
+                <br>
+                <form class="form-inline my-2 my-lg-1" action="/virtualpage/watchlist" method="POST">
+
+                    <input name="name1" class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
+                    <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+
+                    <button id="btn2" type="submit" class="btn btn-primary">Add To Watchlist</button>
+                </form>
+
+            </div>
+        </div>
+    
+
+
+
+        <div class="row">
+            <div class="offset-md-1 col-md-3">
+                <br>
+                <strong>User Virtual Portfolio</strong>
+                <br>
+                <br>
+                <table class="table table-striped">
+                    <thead>
+                        <tr>
+                            <th>Name</th>
+                            <th>CMP</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {{#each portfolio}}
+                        <tr>
+                            <td>
+                                <input type="checkbox" class="checkbox1" value="{{_id}}">
+                            
+                                {{name}}
+                            </td>
+                            <!-- <td>{{CMP}}</td> -->
+                        </tr>
+                        {{/each}}
+                    </tbody>
+                    
+                </table>
+
+                <button id="selectAll1" class="btn btn-info">Select All</button>
+                <button id="clearAll1" class="btn btn-info">Clear All</button>
+                <button id="deleteBtn1" type="submit" class="btn btn-danger">Remove</button>
+
+            </div>    
+            <div class="col-md-3">
+                <br>
+                <br>
+                <br>
+                <img src="pie.jpg" width="250" height="250">        
+            </div>
+            <div class="offset-md-1 col-md-3">
+                <br>
+
+                <strong>Watchlist of Scripps</strong>
+                <br>
+                <br>
+                <table class="table table-striped">
+                    <thead>
+                        <tr>
+                            <th>Name</th>
+                            <th>CMP</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {{#each watchlist}}
+                        <tr>
+                            <td>
+                                <input type="checkbox" class="checkbox2" value="{{_id}}">
+                                
+                                {{name1}}
+                            </td>
+                            <!-- <td>{{CMP}}</td> -->
+                        </tr>
+                        {{/each}}
+                    </tbody>
+                    
+                </table>
+             
+                <button id="selectAll2" class="btn btn-info">Select All</button>
+                <button id="clearAll2" class="btn btn-info">Clear All</button>
+                <button id="deleteBtn2" type="submit" class="btn btn-danger">Remove</button>
+
+            </div>
+
+        </div>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+
+
+      <p class="footer">Disclaimer: Participation in stocks involves substantial risk of loss and is not suitable for every investor. The valuation of stocks fluctuates, and, as a result, clients may lose more than their original investment.</p>
+
+    </div>
+
+    <script src="delete_portfolio.js"></script>
+    <script src="delete_watchlist.js"></script>
+
+</body>
+</html>
